@@ -1,0 +1,211 @@
+:root {
+  --font-base: 'Segoe UI', sans-serif;
+  --color-bg: #f5f6fa;
+  --color-text: #2c3e50;
+  --color-primary: #1a2b4c;
+  --color-secondary: #34495e;
+  --color-accent: #f39c12;
+  --color-surface: #ffffff;
+  --transition: 0.3s ease;
+  --sidebar-width: 200px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  margin-left: var(--sidebar-width);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-secondary);
+  text-decoration: underline;
+}
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: var(--color-secondary);
+  padding: 2rem 1rem;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);
+}
+
+#sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar nav li {
+  margin-bottom: 1rem;
+}
+
+#sidebar nav a {
+  color: var(--color-surface);
+  font-weight: bold;
+}
+
+#sidebar nav a:hover,
+#sidebar nav a:focus {
+  color: var(--color-accent);
+}
+
+header {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  padding: 1.25rem;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.header-logo {
+  width: 100px;
+  height: auto;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.header-text p {
+  margin: 0.25rem 0 0;
+  font-style: italic;
+}
+
+.info-estudiante {
+  background-color: var(--color-surface);
+  max-width: 600px;
+  margin: 1.5rem auto;
+  padding: 1.25rem;
+  border-left: 5px solid var(--color-accent);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-estudiante h2 {
+  margin-top: 0;
+  color: var(--color-secondary);
+}
+
+.info-estudiante ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.info-estudiante li {
+  margin: 0.5rem 0;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  padding: 2rem 1rem;
+}
+
+main h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+}
+
+#contenedor-semanas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+details {
+  background: var(--color-surface);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: box-shadow var(--transition);
+}
+
+summary {
+  list-style: none;
+  padding: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+details p {
+  margin: 0 1rem 1rem;
+}
+
+details a {
+  display: inline-block;
+  margin: 0 1rem 1rem;
+  font-weight: bold;
+}
+
+button:focus,
+summary:focus,
+a:focus {
+  outline: 2px dashed var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1b263b;
+    --color-text: #dfe6e9;
+    --color-surface: #2d3a4f;
+    --color-primary: #121923;
+    --color-secondary: #34495e;
+    --color-accent: #e1b12c;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    margin-left: 0;
+  }
+
+  #sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header-container {
+    flex-direction: column;
+  }
+}
