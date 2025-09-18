@@ -1,211 +1,392 @@
 :root {
-  --font-base: 'Segoe UI', sans-serif;
-  --color-bg: #f5f6fa;
-  --color-text: #2c3e50;
-  --color-primary: #1a2b4c;
-  --color-secondary: #34495e;
-  --color-accent: #f39c12;
-  --color-surface: #ffffff;
-  --transition: 0.3s ease;
-  --sidebar-width: 200px;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+  --sidebar-width: 220px;
+  --header-bg: linear-gradient(90deg, #1976d2 0%, #2196f3 100%);
+  --sidebar-bg: #1b2635;
+  --main-bg: #222b36;
+  --panel-bg: #232d3a;
+  --card-bg: #232d3a;
+  --border-blue: #2196f3;
+  --text-main: #e3e7ee;
+  --text-light: #aec4e9;
+  --text-accent: #2196f3;
+  --text-title: #fff;
+  --footer-bg: #1b2635;
+  --box-shadow: 0 4px 24px #0004;
+  --radius: 18px;
+  --font-base: 'Segoe UI', 'Arial', sans-serif;
 }
 
 body {
   margin: 0;
-  padding: 0;
   font-family: var(--font-base);
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.5;
-  margin-left: var(--sidebar-width);
+  background: var(--main-bg);
+  color: var(--text-main);
+  min-height: 100vh;
 }
 
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: color var(--transition);
-}
-
-a:hover,
-a:focus {
-  color: var(--color-secondary);
-  text-decoration: underline;
-}
-
+/* Sidebar */
 #sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: var(--sidebar-width);
   height: 100vh;
-  background-color: var(--color-secondary);
-  padding: 2rem 1rem;
-  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);
+  background: var(--sidebar-bg);
+  box-shadow: 2px 0 8px #0003;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2em;
 }
 
 #sidebar nav ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 #sidebar nav li {
-  margin-bottom: 1rem;
+  margin-bottom: 1.4em;
 }
 
 #sidebar nav a {
-  color: var(--color-surface);
-  font-weight: bold;
+  color: var(--text-light);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.11em;
+  padding: 0.7em 1.1em;
+  border-radius: 7px;
+  display: block;
+  transition: background 0.18s, color 0.18s;
+  letter-spacing: 0.05em;
 }
 
 #sidebar nav a:hover,
 #sidebar nav a:focus {
-  color: var(--color-accent);
+  background: var(--border-blue);
+  color: #fff;
 }
 
+/* Header */
 header {
-  background-color: var(--color-primary);
-  color: var(--color-surface);
-  padding: 1.25rem;
+  background: var(--header-bg);
+  color: var(--text-title);
+  padding: 1.5rem 0 1.1rem 0;
+  text-align: center;
+  box-shadow: 0 2px 12px #0003;
+  margin-left: var(--sidebar-width);
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.3rem;
 }
 
 .header-logo {
-  width: 100px;
+  width: 70px;
   height: auto;
+  filter: drop-shadow(0px 2px 4px #223a57);
 }
 
 .header-text h1 {
   margin: 0;
   font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-title);
+  letter-spacing: 0.07em;
 }
 
 .header-text p {
   margin: 0.25rem 0 0;
   font-style: italic;
+  color: #bbdefb;
+  font-size: 1.07em;
+  font-weight: 500;
 }
 
+main {
+  margin-left: var(--sidebar-width);
+  min-height: 62vh;
+  padding-bottom: 2em;
+}
+
+/* Info estudiante */
 .info-estudiante {
-  background-color: var(--color-surface);
-  max-width: 600px;
-  margin: 1.5rem auto;
-  padding: 1.25rem;
-  border-left: 5px solid var(--color-accent);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background: var(--panel-bg);
+  max-width: 550px;
+  margin: 2.2rem auto 2.7rem auto;
+  padding: 1.7rem 1.3rem 1.1rem 1.3rem;
+  border-left: 5px solid var(--border-blue);
+  border-radius: var(--radius);
+  box-shadow: var(--box-shadow);
+  color: var(--text-main);
 }
 
 .info-estudiante h2 {
   margin-top: 0;
-  color: var(--color-secondary);
+  margin-bottom: 1.1em;
+  color: var(--border-blue);
+  font-size: 1.3em;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
 }
 
 .info-estudiante ul {
   list-style: none;
   padding: 0;
   margin: 1rem 0 0;
+  font-size: 1.12em;
 }
 
 .info-estudiante li {
   margin: 0.5rem 0;
 }
 
-main {
-  max-width: 900px;
-  margin: 0 auto 2rem;
-  padding: 2rem 1rem;
+.info-icon {
+  font-size: 1.1em;
 }
 
+.semanas-icon {
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+/* Tareas por semana */
 main h2 {
   text-align: center;
-  margin-bottom: 1.5rem;
-  color: var(--color-primary);
+  margin-bottom: 2rem;
+  color: var(--border-blue);
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6em;
 }
 
 #contenedor-semanas {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.2rem;
+  max-width: 1080px;
+  margin: 0 auto 2rem auto;
 }
 
-details {
-  background: var(--color-surface);
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  transition: box-shadow var(--transition);
-}
-
-summary {
-  list-style: none;
-  padding: 1rem;
-  font-weight: bold;
+.tarjeta-semana {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--box-shadow);
+  font-size: 1.11em;
+  padding: 1.3em 0.7em;
+  border: 2px solid var(--border-blue);
+  text-align: center;
   cursor: pointer;
-  outline: none;
-  user-select: none;
+  transition: box-shadow 0.25s, border-color 0.25s, transform 0.18s;
+  color: var(--text-main);
 }
 
-summary::-webkit-details-marker {
-  display: none;
+.tarjeta-semana:hover {
+  box-shadow: 0 8px 32px #0006;
+  border-color: var(--text-accent);
+  transform: translateY(-3px) scale(1.03);
 }
 
-details[open] {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+.icon-semana {
+  font-size: 2.1em;
+  margin-bottom: 0.3em;
+  display: block;
 }
 
-details p {
-  margin: 0 1rem 1rem;
-}
-
-details a {
-  display: inline-block;
-  margin: 0 1rem 1rem;
+.tarjeta-semana-title {
   font-weight: bold;
+  font-size: 1.19em;
+  color: var(--border-blue);
+  margin-bottom: 0.5em;
+  letter-spacing: 0.03em;
 }
 
-button:focus,
-summary:focus,
-a:focus {
-  outline: 2px dashed var(--color-accent);
-  outline-offset: 4px;
+.tarjeta-semana-desc {
+  color: #b5c7e6;
+  font-size: 1em;
+  margin-bottom: 0.5em;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #1b263b;
-    --color-text: #dfe6e9;
-    --color-surface: #2d3a4f;
-    --color-primary: #121923;
-    --color-secondary: #34495e;
-    --color-accent: #e1b12c;
-  }
+/* MODAL TAREA FULLSCREEN */
+.modal-tarea {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(21,30,40,0.98);
+  z-index: 9999;
+  overflow-y: auto;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-  body {
-    margin-left: 0;
-  }
+.modal-tarea.mostrar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  animation: fadeIn 0.25s ease;
+}
 
-  #sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    box-shadow: none;
-    display: flex;
-    justify-content: center;
-  }
+@keyframes fadeIn {
+  from { opacity: 0;}
+  to { opacity: 1;}
+}
 
-  .header-container {
-    flex-direction: column;
-  }
+.modal-content {
+  box-sizing: border-box;
+  width: 98vw;
+  max-width: 98vw;
+  margin: 0 auto;
+  background: var(--panel-bg);
+  border-radius: 0;
+  box-shadow: var(--box-shadow);
+  padding: 1.2rem 0.5rem 2rem 0.5rem;
+  text-align: center;
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.modal-tarea .volver-btn {
+  margin-top: 1.7em;
+  margin-bottom: 1.5em;
+  background: var(--border-blue);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.18em;
+  font-weight: bold;
+  padding: 0.45em 2.2em;
+  cursor: pointer;
+  box-shadow: 0 2px 16px #2196f388;
+  transition: background 0.18s, box-shadow 0.19s;
+}
+
+.modal-tarea .volver-btn:hover {
+  background: #1976d2;
+}
+
+.modal-tarea-title {
+  font-size: 2.3em;
+  color: var(--border-blue);
+  margin-bottom: 0.7em;
+  font-weight: 700;
+}
+
+.modal-tarea-desc {
+  color: #b5c7e6;
+  font-size: 1.18em;
+  margin-bottom: 1.4em;
+}
+
+.modal-tarea-archivos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2em;
+  justify-content: center;
+  margin-bottom: 1.6em;
+}
+
+.modal-tarea-archivo-btn {
+  background: none;
+  border: 2px solid var(--border-blue);
+  color: var(--border-blue);
+  border-radius: 7px;
+  font-size: 1.07em;
+  padding: 0.45em 1.5em;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.modal-tarea-archivo-btn:hover,
+.modal-tarea-archivo-btn.activo {
+  background: var(--border-blue);
+  color: #fff;
+  border-color: #1976d2;
+}
+
+.modal-tarea-vis {
+  box-sizing: border-box;
+  width: 96vw;
+  max-width: 96vw;
+  height: 78vh;
+  min-height: 320px;
+  background: #1b2635;
+  border-radius: 16px;
+  box-shadow: 0 6px 30px #0006;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.modal-tarea-vis embed {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px #2196f380;
+  display: block;
+  border: none;
+}
+
+/* Enlaces de archivos que no son PDF */
+.modal-tarea-vis .archivo-ppt-link {
+  color: var(--border-blue);
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  padding: 1em 0;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+/* Botón para abrir PDF en nueva pestaña */
+.abrir-pdf-btn {
+  margin-top: 1em;
+  background: var(--border-blue);
+  color: #fff;
+  padding: 0.6em 1.2em;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 2px 10px #2196f388;
+  display: inline-block;
+}
+.abrir-pdf-btn:hover { background: #1976d2; }
+
+/* Footer */
+footer {
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: var(--footer-bg);
+  color: var(--border-blue);
+  text-align: center;
+  padding: 1em 0;
+  font-size: 1.05em;
+  letter-spacing: 0.04em;
+  box-shadow: 0 -2px 16px #0003;
+  z-index: 1001;
 }
