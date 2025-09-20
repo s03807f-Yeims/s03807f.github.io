@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
       descripcion: "Actividades de la semana N° 2.",
       archivos: [
         { nombre: "Diagramas", enlace: "archivos/semana2_diagramas.pdf" },
-        { nombre: "Ejercicios.pdf", enlace: "archivos/semana2_ejercicios.pdf" }
+        { nombre: "Manual de instalacion SQL Server 2022", enlace: "archivos/semana2_manualsql.pdf" }
       ]
     },
     {
