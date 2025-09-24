@@ -13,19 +13,20 @@ document.addEventListener("DOMContentLoaded", function() {
     {
       id: "semana1",
       label: "Semana 1",
-      descripcion: "Introducción a la programación y primeros ejercicios.",
+      descripcion: "Manuales e informe técnico.",
       archivos: [
-        { nombre: "Ejercicios.pdf", enlace: "archivos/semana1_ejercicios.pdf" },
-        { nombre: "Ejercicios 2.pdf", enlace: "archivos/semana1_ejercicios2.pdf" }
+        { nombre: "Informe Técnico", enlace: "archivos/semana1_informetecnico.pdf" },
+        { nombre: "Manual de cuenta GitHub", enlace: "archivos/semana1_manualgith.pdf" },
+        { nombre: "Manual de pagina en github", enlace: "archivos/semana1_manualpag.pdf"}
       ]
     },
     {
       id: "semana2",
       label: "Semana 2",
-      descripcion: "Lógica de algoritmos y estructuras de control.",
+      descripcion: "Actividades de la semana N° 2.",
       archivos: [
-        { nombre: "Algoritmos.pdf", enlace: "archivos/semana2_algoritmos.pdf" },
-        { nombre: "Ejercicios.pdf", enlace: "archivos/semana2_ejercicios.pdf" }
+        { nombre: "Diagramas", enlace: "archivos/semana2_diagramas.pdf" },
+        { nombre: "Manual de instalacion SQL Server 2022", enlace: "archivos/semana2_manualsql.pdf" }
       ]
     },
     {
