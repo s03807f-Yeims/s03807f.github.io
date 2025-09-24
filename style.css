@@ -1,0 +1,125 @@
+/* Login Screen */
+.login-screen {
+  display: none;
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(18,22,34,0.99);
+  z-index: 99999;
+  justify-content: center;
+  align-items: center;
+}
+.login-screen.mostrar {
+  display: flex;
+}
+.login-panel {
+  background: #232d3a;
+  border-radius: 18px;
+  box-shadow: 0 6px 30px #000a;
+  padding: 2.1rem 2.5rem;
+  min-width: 330px;
+  text-align: center;
+  color: #e3e7ee;
+}
+.login-panel h2 {color:#2196f3;}
+.login-btn {
+  background: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.18em;
+  font-weight: bold;
+  padding: 0.45em 2.2em;
+  margin: 0.5em 0.3em;
+  cursor: pointer;
+  box-shadow: 0 2px 16px #2196f388;
+  transition: background 0.18s;
+}
+.login-btn:hover { background: #1976d2;}
+#admin-password {margin-top:0.7em;padding:0.5em 1em; font-size:1em; border-radius:8px; border:1px solid #2196f3;}
+#admin-pass-msg {color: #ff5252; margin-top:0.6em; font-weight:bold;}
+
+/* Admin bar */
+#admin-bar {
+  position: fixed;
+  top: 8px;
+  left: 235px;
+  z-index: 1200;
+}
+.admin-bar-btn {
+  background: #1565c0;
+  color: #fff;
+  padding: 0.4em 1.4em;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px #1565c088;
+  cursor: pointer;
+}
+.admin-bar-btn:hover {background:#2196f3;}
+
+/* Modal admin (gestión archivos) */
+.modal-admin {
+  display: none;
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(18,22,34,0.95);
+  z-index: 99998;
+  justify-content: center;
+  align-items: center;
+}
+.modal-admin.mostrar {
+  display: flex;
+}
+.admin-content {
+  background: #232d3a;
+  border-radius: 18px;
+  box-shadow: 0 6px 30px #000a;
+  padding: 2.1rem 2.5rem;
+  min-width: 400px;
+  color: #e3e7ee;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.admin-content h2 {color:#2196f3;}
+.admin-close-btn {
+  background:#2196f3; color:#fff; border:none; border-radius:9px;padding:0.3em 1.3em; font-weight:600; float:right; cursor:pointer;
+}
+.admin-close-btn:hover {background:#1565c0;}
+.admin-semana-block {margin-bottom:2em;padding-bottom:1em;border-bottom:1px solid #2196f3;}
+.admin-file-list {margin-bottom:1em;}
+.admin-file-item {margin-bottom:0.5em;}
+.admin-file-del-btn {background:#ff5252;color:#fff;border:none;border-radius:7px;padding:0.2em 0.8em;cursor:pointer;}
+.admin-file-del-btn:hover{background:#d32f2f;}
+.admin-add-block {margin-top:1em;}
+.admin-add-block input[type="text"] {padding:0.35em 0.9em;border-radius:7px;border:1px solid #2196f3;margin-right:0.4em;}
+.admin-add-block input[type="file"] {margin-top:0.5em;}
+
+:root {
+  --sidebar-width: 220px;
+  --header-bg: linear-gradient(90deg, #1976d2 0%, #2196f3 100%);
+  --sidebar-bg: #1b2635;
+  --main-bg: #222b36;
+  --panel-bg: #232d3a;
+  --card-bg: #232d3a;
+  --border-blue: #2196f3;
+  --text-main: #e3e7ee;
+  --text-light: #aec4e9;
+  --text-accent: #2196f3;
+  --text-title: #fff;
+  --footer-bg: #1b2635;
+  --box-shadow: 0 4px 24px #0004;
+  --radius: 18px;
+  --font-base: 'Segoe UI', 'Arial', sans-serif;
+}
+
+/* El resto de tu CSS igual que antes... */
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  background: var(--main-bg);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+/* ... sigue igual que tu versión anterior ... */
