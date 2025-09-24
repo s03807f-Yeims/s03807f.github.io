@@ -1,10 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
+  // Estado de login y modo
+  let modo = null; // 'usuario' o 'admin'
+  const adminPassword = "admin2025"; // Cambia esto por tu contraseña preferida
+
+  // Semanas y archivos (simulado en JS)
   const iconos = [
     "💻", "🧮", "🗃️", "🧩", "📊", "🗄️", "🔎", "🧑‍💻",
     "🏗️", "⚠️", "📦", "🔗", "🌳", "🕸️", "📚", "🏆"
   ];
 
-  const semanas = [
+  let semanas = [
     {
       id: "semana1",
       label: "Semana 1",
@@ -152,36 +157,124 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   ];
 
+  // Elementos principales
   const contenedor = document.getElementById("contenedor-semanas");
   const modal = document.getElementById("modal-tarea");
+  const loginScreen = document.getElementById("login-screen");
+  const adminBar = document.getElementById("admin-bar");
+  const adminModal = document.getElementById("modal-admin");
 
-  // Vista principal: tarjetas de semana
-  semanas.forEach(({ id, label, descripcion }, idx) => {
-    const card = document.createElement("div");
-    card.className = "tarjeta-semana";
-    card.innerHTML = `
-      <span class="icon-semana">${iconos[idx]}</span>
-      <div class="tarjeta-semana-title">${label}</div>
-      <div class="tarjeta-semana-desc">${descripcion}</div>
-    `;
-    card.addEventListener("click", () => abrirModal(idx));
-    contenedor.appendChild(card);
-  });
+  // LOGIN FLOW
+  document.getElementById("login-user").onclick = () => {
+    modo = "usuario";
+    loginScreen.classList.remove("mostrar");
+    renderSemanas();
+  };
+  document.getElementById("login-admin").onclick = () => {
+    document.getElementById("admin-password-panel").style.display = "block";
+  };
+  document.getElementById("admin-password-confirm").onclick = () => {
+    const passInput = document.getElementById("admin-password");
+    const msg = document.getElementById("admin-pass-msg");
+    if (passInput.value === adminPassword) {
+      modo = "admin";
+      loginScreen.classList.remove("mostrar");
+      adminBar.style.display = "block";
+      renderSemanas();
+    } else {
+      msg.textContent = "Contraseña incorrecta";
+      passInput.value = "";
+    }
+  };
 
-  // Modal: tarea fullscreen
+  // ADMIN MODAL: Gestión de archivos
+  document.getElementById("abrir-admin-modal").onclick = function() {
+    adminModal.classList.add("mostrar");
+    renderAdminModal();
+  };
+
+  function renderAdminModal() {
+    let html = `<div class="admin-content">
+      <button class="admin-close-btn" id="cerrar-admin-modal">Cerrar</button>
+      <h2>Gestión de Archivos</h2>
+      <p>Agrega o elimina archivos PDF por semana</p>`;
+    semanas.forEach((sem, idx) => {
+      html += `<div class="admin-semana-block">
+        <strong>${sem.label}</strong> - ${sem.descripcion}
+        <div class="admin-file-list">`;
+      sem.archivos.forEach((archivo, i) => {
+        html += `<div class="admin-file-item">
+          ${archivo.nombre}
+          <button class="admin-file-del-btn" data-sidx="${idx}" data-fidx="${i}">Eliminar</button>
+        </div>`;
+      });
+      html += `</div>
+      <div class="admin-add-block">
+        <input type="text" placeholder="Nombre del PDF" id="add-nombre-${idx}" />
+        <input type="text" placeholder="Ruta/Ejemplo: archivos/semana${idx+1}_nuevo.pdf" id="add-enlace-${idx}" />
+        <button class="admin-file-del-btn" style="background:#2196f3;" data-sidx="${idx}" id="add-file-btn-${idx}">Agregar</button>
+      </div>
+      </div>`;
+    });
+    html += `</div>`;
+    adminModal.innerHTML = html;
+    document.getElementById("cerrar-admin-modal").onclick = function() {
+      adminModal.classList.remove("mostrar");
+      adminModal.innerHTML = "";
+    };
+    // Eliminar archivo
+    document.querySelectorAll(".admin-file-del-btn").forEach(btn => {
+      if (btn.textContent === "Eliminar") {
+        btn.onclick = function() {
+          const sidx = parseInt(btn.dataset.sidx);
+          const fidx = parseInt(btn.dataset.fidx);
+          semanas[sidx].archivos.splice(fidx, 1);
+          renderAdminModal();
+          renderSemanas();
+        };
+      }
+    });
+    // Agregar archivo
+    semanas.forEach((sem, idx) => {
+      document.getElementById(`add-file-btn-${idx}`).onclick = function() {
+        const nom = document.getElementById(`add-nombre-${idx}`).value.trim();
+        const enl = document.getElementById(`add-enlace-${idx}`).value.trim();
+        if (nom && enl && enl.endsWith('.pdf')) {
+          semanas[idx].archivos.push({nombre: nom, enlace: enl});
+          renderAdminModal();
+          renderSemanas();
+        }
+      };
+    });
+  }
+
+  // Renderizar semanas
+  function renderSemanas() {
+    contenedor.innerHTML = "";
+    semanas.forEach(({ id, label, descripcion }, idx) => {
+      const card = document.createElement("div");
+      card.className = "tarjeta-semana";
+      card.innerHTML = `
+        <span class="icon-semana">${iconos[idx]}</span>
+        <div class="tarjeta-semana-title">${label}</div>
+        <div class="tarjeta-semana-desc">${descripcion}</div>
+      `;
+      card.addEventListener("click", () => abrirModal(idx));
+      contenedor.appendChild(card);
+    });
+  }
+
+  // Modal de tarea
   function abrirModal(idx) {
     const semana = semanas[idx];
-
     let archivosBtns = "";
     semana.archivos.forEach((archivo, i) => {
       archivosBtns += `
         <button class="modal-tarea-archivo-btn" data-file-index="${i}">${archivo.nombre}</button>
       `;
     });
-
     let archivoActual = semana.archivos[0];
     let visHtml = visualizarArchivo(archivoActual);
-
     modal.innerHTML = `
       <div class="modal-content">
         <button class="volver-btn" type="button">⟵ Volver</button>
@@ -218,9 +311,18 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   document.addEventListener("keydown", function(e) {
-    if (e.key === "Escape" && modal.classList.contains("mostrar")) {
-      modal.classList.remove("mostrar");
-      modal.innerHTML = "";
+    if (e.key === "Escape") {
+      if (modal.classList.contains("mostrar")) {
+        modal.classList.remove("mostrar");
+        modal.innerHTML = "";
+      }
+      if (adminModal.classList.contains("mostrar")) {
+        adminModal.classList.remove("mostrar");
+        adminModal.innerHTML = "";
+      }
     }
   });
+
+  // Al cargar, muestra el login
+  loginScreen.classList.add("mostrar");
 });

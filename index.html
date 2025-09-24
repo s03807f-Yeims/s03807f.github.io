@@ -8,6 +8,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Login Screen -->
+  <div id="login-screen" class="login-screen mostrar">
+    <div class="login-panel">
+      <h2>Bienvenido</h2>
+      <p>Selecciona cómo deseas continuar:</p>
+      <button class="login-btn" id="login-user">Ingresar como Usuario</button>
+      <button class="login-btn" id="login-admin">Ingresar como Admin</button>
+      <div id="admin-password-panel" style="display:none;">
+        <input type="password" id="admin-password" placeholder="Contraseña de Admin">
+        <button class="login-btn" id="admin-password-confirm">Continuar como Admin</button>
+        <div id="admin-pass-msg"></div>
+      </div>
+    </div>
+  </div>
+
   <aside id="sidebar">
     <nav>
       <ul>
@@ -16,6 +31,11 @@
       </ul>
     </nav>
   </aside>
+
+  <!-- Barra admin solo visible para admin -->
+  <div id="admin-bar" style="display:none;">
+    <button class="admin-bar-btn" id="abrir-admin-modal">Gestionar Archivos</button>
+  </div>
 
   <header>
     <div class="header-container">
@@ -46,6 +66,9 @@
   </main>
 
   <div id="modal-tarea" class="modal-tarea"></div>
+
+  <!-- Modal ADMIN para editar/semanas/archivos -->
+  <div id="modal-admin" class="modal-admin"></div>
 
   <footer>
     <p>© 2025 Universidad Nacional - Repositorio de Tareas</p>
