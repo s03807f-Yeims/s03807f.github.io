@@ -31,6 +31,7 @@ let semanas = [
       descripcion: "Actividades de la semana N°3",
       archivos: [
         { nombre: "Estructuras.pdf", enlace: "archivos/semana3_tarea1.pdf" },
+        { nombre: "Estructuras.pdf", enlace: "archivos/semana3_tarea2.pdf" }
       ]
     },
     {
