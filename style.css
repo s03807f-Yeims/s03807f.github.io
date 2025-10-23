@@ -1,0 +1,344 @@
+:root {
+  --sidebar-width: 220px;
+  --header-bg: linear-gradient(90deg, #0d47a1 0%, #1976d2 100%);
+  --sidebar-bg: #0b1320;
+  --main-bg: #f4f7fb;
+  --panel-bg: #ffffff;
+  --card-bg: #eef5ff;
+  --border-blue: #1976d2;
+  --border-dark: #101827;
+  --border-gray: #cfd8dd;
+  --text-main: #0b1420;
+  --text-accent: #1565c0;
+  --text-title: #0d47a1;
+  --footer-bg: #0b1320;
+  --box-shadow: 0 8px 24px rgba(2,6,23,0.08);
+  --radius: 12px;
+  --font-base: 'Segoe UI', 'Arial', sans-serif;
+}
+
+/* Reset / base */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  background: var(--main-bg);
+  color: var(--text-main);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus visible */
+:focus { outline: 3px solid rgba(25,118,210,0.12); outline-offset: 3px; }
+a:focus, button:focus, input:focus { outline: 3px solid var(--border-blue); outline-offset: 2px; }
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* Sidebar */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--sidebar-bg);
+  box-shadow: 2px 0 8px rgba(2,6,23,0.08);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2.2rem;
+}
+#sidebar nav ul { list-style: none; margin: 0; padding: 0; width: 100%; }
+#sidebar nav li { margin-bottom: 1.1em; }
+#sidebar nav a {
+  color: #cfe9ff;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.02em;
+  padding: 0.7em 1.1em;
+  border-radius: 7px;
+  display: block;
+}
+#sidebar nav a:hover, #sidebar nav a:focus { background: rgba(255,255,255,0.03); color: #fff; }
+
+/* Header */
+header {
+  background: var(--header-bg);
+  color: #fff;
+  padding: 1rem 0.75rem;
+  box-shadow: 0 2px 8px rgba(2,6,23,0.08);
+  margin-left: var(--sidebar-width);
+  position: relative;
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+.header-logo { width: 64px; height: auto; filter: drop-shadow(0px 2px 6px rgba(0,0,0,0.2)); }
+.header-text h1 { margin: 0; font-size: 1.4rem; font-weight: 700; color: #fff; }
+.header-text h2 { margin: 0; font-size: 1rem; font-weight: 600; color: #e3f2fd; }
+.header-text p { margin: 0.25rem 0 0; font-style: italic; color: #bbdefb; }
+
+/* Admin button in header */
+#admin-btn {
+  background: #ffca28;
+  color: #0b1320;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95em;
+  font-weight: 700;
+  padding: 0.45em 0.9em;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(25,118,210,0.08);
+}
+
+/* Main */
+main { margin-left: var(--sidebar-width); min-height: 62vh; padding: 1.6rem 1rem 2em 1rem; }
+
+/* Info estudiante */
+.info-estudiante {
+  background: linear-gradient(180deg, #ffffff 0%, #f4fbff 100%);
+  max-width: 700px;
+  margin: 1.8rem auto;
+  padding: 1.2rem;
+  border-left: 6px solid var(--border-blue);
+  border-radius: var(--radius);
+  box-shadow: var(--box-shadow);
+  color: var(--text-main);
+}
+.info-estudiante h2 { margin-top: 0; margin-bottom: 0.8rem; color: var(--text-title); font-size: 1.1rem; }
+
+/* Contenedor semanas */
+main h2 {
+  text-align: center;
+  margin-bottom: 1.6rem;
+  color: var(--text-title);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+#contenedor-semanas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.4rem;
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+  padding: 0 0.5rem;
+}
+.tarjeta-semana {
+  background: linear-gradient(180deg, #ffffff 0%, var(--card-bg) 100%);
+  border-radius: calc(var(--radius) - 2px);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+  font-size: 1.02em;
+  padding: 1rem;
+  border: 2px solid rgba(25,118,210,0.12);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  color: var(--text-main);
+}
+.tarjeta-semana:hover, .tarjeta-semana:focus {
+  box-shadow: 0 12px 36px rgba(25,118,210,0.14);
+  transform: translateY(-4px);
+}
+.icon-semana { font-size: 1.8em; margin-bottom: 0.3em; display: block; color: var(--text-accent); }
+.tarjeta-semana-title { font-weight: 700; font-size: 1.02em; color: var(--text-title); }
+
+/* MODAL TAREA: mayor tamaño del visor PDF */
+.modal-tarea {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,23,0.7);
+  z-index: 10000;
+  overflow: auto;
+  padding: 2rem 1rem;
+}
+.modal-tarea.mostrar { display: flex; align-items: center; justify-content: center; }
+/* aumentar altura útil del modal y hacer viewer dominante */
+.modal-content {
+  width: 100%;
+  max-width: 1200px;
+  max-height: calc(100vh - 2rem);
+  background: var(--panel-bg);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* titulo y boton volver */
+.modal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0.4rem;
+}
+.modal-top .modal-tarea-title { font-size: 1.2rem; color: var(--border-blue); margin: 0; }
+.modal-top .volver-btn {
+  background: var(--border-blue);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.45em 0.8em;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Cuerpo dividido */
+.modal-body {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.6rem;
+  flex: 1;
+  min-height: 60vh; /* hacer body alto para que viewer sea grande */
+  overflow: hidden;
+}
+
+/* IZQUIERDA: lista de archivos */
+.modal-files {
+  width: 260px; /* un poco más ancho para listas largas */
+  min-width: 180px;
+  background: #fff;
+  border: 3px solid #e53935;
+  border-radius: 8px;
+  padding: 0.6rem;
+  overflow-y: auto;
+}
+.modal-files h3 {
+  margin: 0 0 0.6rem 0;
+  font-size: 0.98rem;
+  color: #b71c1c;
+  text-align: center;
+}
+.file-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 2px solid transparent;
+  padding: 0.45rem 0.6rem;
+  margin-bottom: 0.45rem;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--border-dark);
+}
+.file-item:hover, .file-item:focus { background: #f1f1f1; }
+.file-item.activo {
+  background: var(--border-blue);
+  color: #fff;
+  border-color: var(--border-blue);
+}
+
+/* DERECHA: visor PDF (ahora mucho más grande) */
+.modal-viewer {
+  flex: 1;
+  background: #fff;
+  border: 3px solid #8bc34a;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.viewer-area {
+  flex: 1;
+  min-height: 70vh; /* espacio grande para PDF */
+  background: #eaf2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.viewer-area embed, .viewer-area iframe, .viewer-area img { width: 100%; height: 100%; border: none; display: block; object-fit: contain; }
+.viewer-bottom {
+  padding: 0.6rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between; /* espacio entre botones */
+  align-items: center;
+  background: #fafafa;
+  border-top: 1px solid var(--border-gray);
+}
+.abrir-pdf-btn {
+  background: var(--border-blue);
+  color: #fff;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+}
+/* botón extra para GitHub */
+.abrir-github-btn {
+  background: #24292e;
+  color: #fff;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ADMIN MODALS */
+#admin-modal, #panel-admin { display: none; position: fixed; inset: 0; z-index: 10001; align-items: center; justify-content: center; background: rgba(0,0,0,0.45); }
+#admin-modal.mostrar, #panel-admin.mostrar { display: flex; }
+.admin-modal-content {
+  background: var(--panel-bg);
+  border-radius: 12px;
+  padding: 1rem;
+  width: 320px;
+  position: relative;
+  box-shadow: var(--box-shadow);
+}
+.admin-modal-close, .panel-admin-close { position: absolute; top: 8px; right: 10px; background: none; border: none; font-size: 1.2rem; color: var(--border-blue); cursor: pointer; }
+.admin-modal-error { color: #d32f2f; margin-top: 0.4rem; font-weight: 700; text-align: center; }
+
+/* Panel admin inner */
+.panel-admin-content {
+  width: 95%;
+  max-width: 720px;
+  background: var(--panel-bg);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: var(--box-shadow);
+}
+.admin-semana-item { background: var(--card-bg); padding: 0.8rem; border-radius: 8px; margin-bottom: 0.9rem; display: block; }
+.admin-archivo-item { background: #fff; padding: 0.45rem; border-radius: 6px; margin-bottom: 0.4rem; display:flex; justify-content:space-between; align-items:center; }
+.admin-edit-btn, .admin-delete-btn, .admin-add-archivo-btn, .admin-edit-archivo-btn, .admin-delete-archivo-btn, .admin-add-semana-btn {
+  background: var(--border-blue); color: #fff; border: none; padding: 0.35rem 0.6rem; border-radius: 6px; cursor: pointer; font-weight:700;
+}
+.admin-delete-btn { background: #f44336; }
+
+/* Footer */
+footer {
+  margin-left: var(--sidebar-width);
+  padding: 1rem;
+  background: var(--footer-bg);
+  color: #cfe9ff;
+  text-align: center;
+}
+
+/* Small screens: collapse sidebar into compact */
+@media (max-width: 900px) {
+  :root { --sidebar-width: 56px; }
+  #sidebar { width: var(--sidebar-width); padding-top: 1rem; }
+  main, header, footer { margin-left: var(--sidebar-width); }
+  #contenedor-semanas { grid-template-columns: 1fr; }
+  .header-text h1 { display: none; }
+  .header-text h2 { font-size: 0.95rem; display: block; }
+  .info-estudiante { margin: 1rem 0.6rem; }
+  .modal-content { padding: 0.6rem; }
+  .modal-body { min-height: 50vh; }
+  .viewer-area { min-height: 40vh; }
+}
