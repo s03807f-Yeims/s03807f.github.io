@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
       { nombre: "Ejercicios de la semana 11.pdf", enlace: "archivos/semana11_ejercicios.pdf" }
     ]}
     ,
-    { id: "semana12", label: "Semana 12", descripcion: "Listas enlazadas y aplicaciones.", archivos: [
+    { id: "semana12", label: "Semana 12", descripcion: "PRACTICA SEMANA 12.", archivos: [
       { nombre: "PRACTICA SEMANA 12", enlace: "archivos/semana12_PRACTICA.pdf" }
     ]}
       /*,
@@ -638,3 +638,4 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
+
