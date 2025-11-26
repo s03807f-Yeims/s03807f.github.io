@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ]}
     ,
     { id: "semana12", label: "Semana 12", descripcion: "PRACTICA SEMANA 12.", archivos: [
+      { nombre: "Resumen SEMANA 12", enlace: "archivos/semana12_resumen.pdf" },
       { nombre: "PRACTICA SEMANA 12", enlace: "archivos/semana12_PRACTICA.pdf" }
     ]}
       /*,
@@ -638,4 +639,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
+
 
