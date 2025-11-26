@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     
     { id: "semana9", label: "Semana 9", descripcion: "Enunciados con consultas avanzadas", archivos: [
-      { nombre: "Consultas avanzadas.pdf", enlace: "archivos/semana9_enunciados.pdf" }
+      { nombre: "Consultas avanzadas", enlace: "archivos/semana9_enunciados.pdf" }
     ]},
      
     { id: "semana10", label: "Semana 10", descripcion: "PRACTICA y tareas de la semana 10", archivos: [
@@ -89,19 +89,19 @@ document.addEventListener("DOMContentLoaded", function () {
     ]}
     ,
     { id: "semana11", label: "Semana 11", descripcion: "Ejercicios y practica de la semana 11.", archivos: [
-      { nombre: "PRACTICA SEMANA 11.pdf", enlace: "archivos/semana11_PRACTICA.pdf" },
-      { nombre: "Ejercicios de la semana 11.pdf", enlace: "archivos/semana11_ejercicios.pdf" }
+      { nombre: "PRACTICA SEMANA 11", enlace: "archivos/semana11_PRACTICA.pdf" },
+      { nombre: "Ejercicios de la semana 11", enlace: "archivos/semana11_ejercicios.pdf" }
     ]}
     ,
     { id: "semana12", label: "Semana 12", descripcion: "PRACTICA SEMANA 12.", archivos: [
       { nombre: "Resumen SEMANA 12", enlace: "archivos/semana12_resumen.pdf" },
       { nombre: "PRACTICA SEMANA 12", enlace: "archivos/semana12_PRACTICA.pdf" }
     ]}
-      /*,
-    { id: "semana13", label: "Semana 13", descripcion: "Árboles y recorridos básicos.", archivos: [
-      { nombre: "Árboles.pdf", enlace: "archivos/semana13_arboles.pdf" },
-      { nombre: "Ejercicios.pdf", enlace: "archivos/semana13_ejercicios.pdf" }
-    ]},
+      ,
+    { id: "semana13", label: "Semana 13", descripcion: "PRACTICA SEMANA 13", archivos: [
+      { nombre: "Resumen SEMANA 13", enlace: "archivos/semana13_resumen.pdf" },
+      { nombre: "PRACTICA SEMANA 13", enlace: "archivos/semana13_PRACTICA.pdf" }
+    ]}/*,
     { id: "semana14", label: "Semana 14", descripcion: "Algoritmos de grafos y redes.", archivos: [
       { nombre: "Grafos.pdf", enlace: "archivos/semana14_grafos.pdf" },
       { nombre: "Ejercicios.pdf", enlace: "archivos/semana14_ejercicios.pdf" }
@@ -639,5 +639,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
+
 
 
