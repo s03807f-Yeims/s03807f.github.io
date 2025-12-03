@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
       { nombre: "Resumen SEMANA 13", enlace: "archivos/semana13_resumen.pdf" },
       { nombre: "PRACTICA SEMANA 13", enlace: "archivos/semana13_PRACTICA.pdf" }
     ]},
-    { id: "semana14", label: "Semana 14", descripcion: "Algoritmos de grafos y redes.", archivos: [
+    { id: "semana14", label: "Semana 14", descripcion: "PRACTICA SEMANA 14.", archivos: [
       { nombre: "Resumen - Semana 14", enlace: "archivos/semana14_resumen.pdf" },
       { nombre: "Practica - Semana 14", enlace: "archivos/semana14_PRACTICA.pdf" }
     ]}/*,
@@ -639,6 +639,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
+
 
 
 
