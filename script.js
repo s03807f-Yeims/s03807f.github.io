@@ -105,11 +105,10 @@ document.addEventListener("DOMContentLoaded", function () {
     { id: "semana14", label: "Semana 14", descripcion: "PRACTICA SEMANA 14.", archivos: [
       { nombre: "Resumen - Semana 14", enlace: "archivos/semana14_resumen.pdf" },
       { nombre: "Practica - Semana 14", enlace: "archivos/semana14_PRACTICA.pdf" }
-    ]}/*,
-    { id: "semana15", label: "Semana 15", descripcion: "Resumen y repaso general.", archivos: [
-      { nombre: "Resumen.pdf", enlace: "archivos/semana15_resumen.pdf" },
-      { nombre: "Ejercicios.pdf", enlace: "archivos/semana15_ejercicios.pdf" }
     ]},
+    { id: "semana15", label: "Semana 15", descripcion: "Resumen y repaso general.", archivos: [
+      { nombre: "Resumen", enlace: "archivos/semana15_resumen.pdf" }
+    ]}/*,
     { id: "semana16", label: "Semana 16", descripcion: "Proyecto final y entrega de documentación.", archivos: [
       { nombre: "ProyectoFinal.pdf", enlace: "archivos/semana16_proyecto.pdf" },
       { nombre: "Ejercicios.pdf", enlace: "archivos/semana16_ejercicios.pdf" }
@@ -639,6 +638,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
+
 
 
 
